@@ -11,3 +11,4 @@ services:
             - .:/app:rw
         environment:
             - APP_ENV=dev
+            - DATABASE_HOST=host.docker.internal
