@@ -1,5 +1,7 @@
 FROM php:8.3-cli-alpine as sio_test
 RUN apk add --no-cache git zip bash
+RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd
+RUN docker-php-ext-install pdo_mysql
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Setup php app user
