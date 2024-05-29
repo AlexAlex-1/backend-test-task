@@ -6,7 +6,23 @@ Content-Type: application/json
 {
   "product": 1,
   "taxNumber": "DE123456789",
-  "couponCode": "D15"
+  "couponCode": "P10"
+}
+
+{
+  "status": "success",
+  "price": 109.8
+}
+
+### Calculate price with incorrect discount code
+{
+  "product": 1,
+  "taxNumber": "DE123456789",
+  "couponCode": "P1000"
+}
+
+{
+  "error": "Coupon with code P1000 is not found."
 }
 
 ### Execute Purchase
@@ -17,6 +33,24 @@ Content-Type: application/json
 {
   "product": 1,
   "taxNumber": "IT12345678900",
-  "couponCode": "D15",
+  "couponCode": "P10",
   "paymentProcessor": "paypal"
+}
+{
+  "status": "success",
+  "paymentStatus": null,
+  "price": 109.8
+}
+
+### Execute purchase with 100% discont
+{
+  "product": 1,
+  "taxNumber": "IT12345678900",
+  "couponCode": "P100",
+  "paymentProcessor": "stripe"
+}
+{
+  "status": "success",
+  "paymentStatus": true,
+  "price": 0
 }
