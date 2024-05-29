@@ -6,6 +6,7 @@ use App\Repository\TaxRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TaxRepository::class)]
+
 class Tax
 {
     #[ORM\Id]
@@ -13,7 +14,7 @@ class Tax
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $format = null;
 
     #[ORM\Column]
